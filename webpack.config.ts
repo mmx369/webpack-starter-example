@@ -1,11 +1,12 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import path from 'path'
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-module.exports = {
+const config = {
   mode: 'development',
-  entry: { bundle: path.resolve(__dirname, 'src/index.js') },
+  resolve: { extensions: ['.js', '.ts'] },
+  entry: { bundle: path.resolve(__dirname, 'src/index.ts') },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
@@ -40,6 +41,11 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.ts$/,
+        exclude: [/node_modules/],
+        loader: 'ts-loader',
+      },
     ],
   },
   plugins: [
@@ -51,3 +57,5 @@ module.exports = {
     new BundleAnalyzerPlugin(),
   ],
 }
+
+export default config
