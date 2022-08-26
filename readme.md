@@ -1,9 +1,10 @@
 # Webpack App Starter
 
-Frontend environment for building JS applications
+Frontend environment for building TS applications
 
 Includes the following features...
 
+- TS Loader
 - Babel Loader
 - Sass Loader
 - HTMLWebpackPlugin
@@ -30,6 +31,6 @@ npm run build
 
 The demo app is a very simple Chack Norris Joke generator. Replace with your own code and install other packages as needed
 
-- index.js (main javascript)
+- index.ts (main javascript)
 - template.html (template)
 - styles/main.scss (styles)
